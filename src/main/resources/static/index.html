@@ -13,35 +13,75 @@
             <div class="col-sm-6 col-lg-6">
                 <h2 class="text-center">ToDo List</h2>
                 <form>
-                    <div class="form-group">
+                    <div class="input-group">
                         <input type="text" class="form-control" id="addtask" placeholder="Add your task">
-                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                        <button id="addTaskBtn" type="submit" class="btn btn-primary">
+                            <span><i class="bi bi-plus-circle"></i></span>
+                        </button>
                     </div>
                 </form>
                 <p class="text-center text-success">ToDo item Created Successfully.</p>
-                <div class="bg-light">
-                    <h3>Edit Project Video
-                        <span><i class="bi bi-pencil-fill"></i></span>
-                        <span><i class="bi bi-trash"></i></span>
+                <div class="bg-light mb-2 p-3 d-flex justify-content-between align-items-center">
+                    <h3 class="my-0">
+                        Edit Project Video
                     </h3>
+                    <div>
+                        <a href="#" class="text-secondary text-decoration-none me-2 js-task-check">
+                            <span><i class="bi bi-check-circle"></i></span>
+                        </a>
+                        <a href="#" class="text-secondary text-decoration-none me-2 js-task-edit">
+                            <span><i class="bi bi-pencil-fill"></i></span>
+                        </a>
+                        <a href="#" class="text-danger text-decoration-none js-task-delete">
+                            <span><i class="bi bi-trash"></i></span>
+                        </a>
+                    </div>
                 </div>
-                <div class="bg-light">
-                    <h3>Upload Project Video
-                        <span><i class="bi bi-pencil-fill"></i></span>
-                        <span><i class="bi bi-trash"></i></span>
+                <div class="bg-light mb-2 p-3 d-flex justify-content-between align-items-center">
+                    <h3>
+                        Upload Project Video
                     </h3>
+                    <div>
+                        <a href="#" class="text-secondary text-decoration-none me-2 js-task-check">
+                            <span><i class="bi bi-check-circle"></i></span>
+                        </a>
+                        <a href="#" class="text-secondary text-decoration-none me-2 js-task-edit">
+                            <span><i class="bi bi-pencil-fill"></i></span>
+                        </a>
+                        <a href="#" class="text-danger text-decoration-none js-task-delete">
+                            <span><i class="bi bi-trash"></i></span>
+                        </a>
+                    </div>
                 </div>
-                <div class="bg-light">
+                <div class="bg-light mb-2 p-3 d-flex justify-content-between align-items-center">
                     <h3>Record New Video
-                        <span><i class="bi bi-pencil-fill"></i></span>
-                        <span><i class="bi bi-trash"></i></span>
                     </h3>
+                    <div>
+                        <a href="#" class="text-secondary text-decoration-none me-2 js-task-check">
+                            <span><i class="bi bi-check-circle"></i></span>
+                        </a>
+                        <a href="#" class="text-secondary text-decoration-none me-2 js-task-edit">
+                            <span><i class="bi bi-pencil-fill"></i></span>
+                        </a>
+                        <a href="#" class="text-danger text-decoration-none js-task-delete">
+                            <span><i class="bi bi-trash"></i></span>
+                        </a>
+                    </div>
                 </div>
-                <div class="bg-light">
+                <div class="bg-light mb-2 p-3 d-flex justify-content-between align-items-center">
                     <h3>Record New Video
-                        <span><i class="bi bi-pencil-fill"></i></span>
-                        <span><i class="bi bi-trash"></i></span>
                     </h3>
+                    <div>
+                        <a href="#" class="text-secondary text-decoration-none me-2 js-task-check">
+                            <span><i class="bi bi-check-circle"></i></span>
+                        </a>
+                        <a href="#" class="text-secondary text-decoration-none me-2 js-task-edit">
+                            <span><i class="bi bi-pencil-fill"></i></span>
+                        </a>
+                        <a href="#" class="text-danger text-decoration-none js-task-delete">
+                            <span><i class="bi bi-trash"></i></span>
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -49,5 +89,6 @@
     </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/todo.js"></script>
 </body>
 </html>
