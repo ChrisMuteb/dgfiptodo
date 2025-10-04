@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkIcon = document.querySelector('.js-task-check');
     const editIcon = document.querySelector('.js-task-edit');
     const deleteIcon = document.querySelector('.js-task-delete');
-    const addTaskBtn = document.querySelector('#addTaskBtn');
+    //const addTaskBtn = document.querySelector('#addTaskBtn');
+    const isTaskCreated = document.querySelector('#isTaskCreated');
 
+    isTaskCreated.style.display = 'none';
     // Add a click event listener
     checkIcon.addEventListener('click', (event) => {
         // Prevent the default anchor tag behavior (e.g., jumping to the top of the page)
@@ -36,19 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Add a click event listener
-    addTaskBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        const taskInput = document.querySelector('#addtask');
-        const taskText = taskInput.value;
-
-        if (taskText) {
-            console.log('Adding a new task: ', taskText);
-            // Example: Call a function to add the task to your list
-            // addTask(taskText);
-            taskInput.value = ''; // Clear the input field
-        }
-    });
+//    addTaskBtn.addEventListener('click', (event) => {
+//        event.preventDefault();
+//
+//        const taskInput = document.querySelector('#addtask');
+//        const taskText = taskInput.value;
+//
+//        if (taskText) {
+//            console.log('Adding a new task: ', taskText);
+//            // Example: Call a function to add the task to your list
+//            // addTask(taskText);
+//            taskInput.value = ''; // Clear the input field
+//        }
+//    });
 });
 
 function markTaskAsComplete() {

@@ -8,6 +8,7 @@ import java.util.List;
 public interface TaskService {
     ResponseTask createTask(RequestTask aTask);
     ResponseTask updateTask(RequestTask aTask, Long taskId);
+    ResponseTask updateTask( Long taskId);
     String deleteTask( Long taskId);
     ResponseTask readTask( Long taskId);
     List<ResponseTask> readTasks();

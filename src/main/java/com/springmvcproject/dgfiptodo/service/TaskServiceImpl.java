@@ -52,10 +52,24 @@ public class TaskServiceImpl implements TaskService, CommandLineRunner {
     }
 
     @Override
+    public ResponseTask updateTask( Long taskId) {
+        log.info("Update Task: {}", taskId);
+        Task responseTask = readTaskObject(taskId);
+
+        // update the status of the task
+        responseTask.setStatus(Status.DONE);
+        log.info("New Task: {}", responseTask);
+
+
+        Task response = taskRepository.save(responseTask);
+        return mapperToResponseTask(response);
+    }
+
+    @Override
     public String deleteTask(Long taskId) {
         log.info("Delete Task: {}", taskId);
 
-        taskRepository.deleteById(100L);
+        taskRepository.deleteById(taskId);
         return "Deleted task id: " + taskId;
     }
 
@@ -72,6 +86,14 @@ public class TaskServiceImpl implements TaskService, CommandLineRunner {
         return mapperToResponseTask(task);
     }
 
+    private Task readTaskObject(Long taskId) {
+        log.info("Read Task: {}", taskId);
+
+        Optional<Task> taskOptional = taskRepository.findById(taskId);
+
+        return taskOptional.orElse(null);
+    }
+
     @Override
     public List<ResponseTask> readTasks() {
         log.info("Read Tasks");
@@ -80,7 +102,7 @@ public class TaskServiceImpl implements TaskService, CommandLineRunner {
         List<Task> taskList = taskRepository.findAll();
 
         for(Task t: taskList){
-            ResponseTask responseTask = mapperToResponseTask(taskList.get(0));
+            ResponseTask responseTask = mapperToResponseTask(t);
             result.add(responseTask);
         }
         return result;
@@ -118,6 +140,7 @@ public class TaskServiceImpl implements TaskService, CommandLineRunner {
 
     private ResponseTask mapperToResponseTask(Task task) {
         return new ResponseTask(
+                task.getId().toString(),
                 task.getName(),
                 task.getDescription(),
                 task.getStatus().name(),
@@ -133,28 +156,28 @@ public class TaskServiceImpl implements TaskService, CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // CREATED
-        RequestTask requestTask = new RequestTask(
-                "edit video",
-                "CupPro used",
-                "IN PROGRESS",
-                "2025-09-15T00:00:00");
-        ResponseTask responseTask = createTask(requestTask);
-
-        // UPDATE
-        RequestTask requestTask2 = new RequestTask(
-                "edit video 2",
-                "CupPro used 2",
-                "IN PROGRESS",
-                "2025-09-18T00:00:00");
-        ResponseTask responseTask2 =  updateTask(requestTask2, 1L);
-
-        // READ
-        ResponseTask responseTask3 = readTask(100L);
-        List<ResponseTask> responseTaskList =  readTasks();
-
-        // DELETE
-        String delete = deleteTask(100L);
-
-        log.info("Response: {}", delete);
+//        RequestTask requestTask = new RequestTask(
+//                "edit video",
+//                "CupPro used",
+//                "IN PROGRESS",
+//                "2025-09-15T00:00:00");
+//        ResponseTask responseTask = createTask(requestTask);
+//
+//        // UPDATE
+//        RequestTask requestTask2 = new RequestTask(
+//                "edit video 2",
+//                "CupPro used 2",
+//                "IN PROGRESS",
+//                "2025-09-18T00:00:00");
+//        ResponseTask responseTask2 =  updateTask(requestTask2, 1L);
+//
+//        // READ
+//        ResponseTask responseTask3 = readTask(100L);
+//        List<ResponseTask> responseTaskList =  readTasks();
+//
+//        // DELETE
+//        String delete = deleteTask(100L);
+//
+//        log.info("Response: {}", delete);
     }
 }
